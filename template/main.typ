@@ -34,7 +34,7 @@
 )
 
 = Introduction绪论
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>)and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
+Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>) and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
 
 This Typst template adopts many of the conventions used by Gralla and Tufte and allows the interested author to obtain a similar appearance to style of Tufte's publications. However, the design adapts the book-format to work as an article (i.e., not having multiple parts and chapters and so forth, but instead something more akin to a memo or academic journal article).
 

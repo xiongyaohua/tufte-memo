@@ -42,7 +42,7 @@
   set document(title: title, author: authors.map(author => author.name))
 
   // Just a suttle lightness to decrease the harsh contrast
-  set text(fill:luma(30))
+  set text(fill:luma(30), lang: "zh")
 
   // Tables and figures
   show figure: set figure.caption(separator: [.#h(0.5em)])
@@ -50,12 +50,12 @@
   show figure.caption: set text(font: sans-fonts)
 
   show figure.where(kind: table): set figure.caption(position: top)
-  show figure.where(kind: table): set figure(numbering: "I")
+  show figure.where(kind: table): set figure(numbering: "1")
   
-  show figure.where(kind: image): set figure(supplement: [Figure], numbering: "1")
+  show figure.where(kind: image): set figure(numbering: "1")
   
   show figure.where(kind: raw): set figure.caption(position: top)
-  show figure.where(kind: raw): set figure(supplement: [Code], numbering: "1")
+  show figure.where(kind: raw): set figure(numbering: "1")
   show raw: set text(font: "Lucida Console", size: 10pt)
 
   // Equations
@@ -67,14 +67,14 @@
   // Lists
   set enum(
     indent: 1em,
-    body-indent: 1em,
+    body-indent: 0em,
   )
   show enum: set par(justify: false)
   set list(
     indent: 1em,
-    body-indent: 1em,
+    body-indent: 0em,
   )
-  show list: set par(justify: false)
+  //show list: set par(justify: false)
 
   // Headings
   set heading(numbering: none,)
@@ -135,10 +135,10 @@
           linebreak()
         }
         if draft [
-          Draft document, #date.display().
+          草稿，#date.display()。
         ]
         if distribution != none [
-          Distribution limited to #distribution.
+          供#{distribution}使用。
         ]
       } else {
         if type(footer-content) == array {
@@ -155,7 +155,7 @@
           Distribution limited to #distribution.
         ]
         linebreak()
-        [Page #counter(page).display()]
+        [#counter(page).display("第1页/共1页", both: true)]
       }
     })},
     background: if draft {rotate(45deg,text(font:sans-fonts,size:200pt, fill: rgb("FFEEEE"))[DRAFT])}
@@ -229,7 +229,7 @@
   titleblock(title:title, subtitle:subtitle)
   authorblock(authors)
   text(size:11pt,font: sans-fonts,{
-    if date != none {upper(date.display("[month repr:long] [day], [year]"))}
+    if date != none {date.display("[year]年[month]月[day]日")}
     linebreak()
     if document-number != none {document-number}
   })
@@ -243,8 +243,8 @@
   set-margin-note-defaults(
     stroke: none,
     side: right,
-    margin-right: 2.2in,
-    margin-left: 1.35in,
+    margin-right: 2.5in,
+    margin-left: 1in,
   )
 
   // Body text
@@ -260,7 +260,7 @@
 
   show bibliography: set text(font:sans-fonts)
   show bibliography: set par(justify:false)
-  set bibliography(title:none)
+  set bibliography(title:none, style:"gb-7714-2015-numeric")
   if bib != none {
     heading(level:1,[References])
     bib
@@ -303,6 +303,7 @@ CAUTION: if no bibliography is defined, then this function will not display anyt
 #let notecite(dy:-2em,supplement:none,key) = context {
   let elems = query(bibliography)
   if elems.len() > 0 {
+    set text(lang: "en")
     cite(key,supplement:supplement,style:"ieee")
     note(
       cite(key,form: "full",style: "template/short_ref.csl"),
