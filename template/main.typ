@@ -1,14 +1,14 @@
-#import "@preview/tufte-memo:0.1.1": *
+#import "../lib.typ": *
 
 #show: template.with(
-  title: [Tufte inspired Typst template],
-  shorttitle: [Tufte-Memo Usage Guide],
-  subtitle: [The Tufte-Memo Usage guide and background],
+  title: [Tufte inspired Typst template 标题],
+  shorttitle: [Tufte-Memo Usage Guide 短标题],
+  subtitle: [The Tufte-Memo Usage guide and background 副标题],
   authors: (
     (
-      name: "Noah Gula",
-      role: "Designer",
-      affiliation: "Optional Affiliation Line",
+      name: "张三",
+      role: "设计",
+      affiliation: "单位",
       email: "@nogula"
     ),
     (
@@ -19,17 +19,22 @@
     ),
   ),
   document-number: [Version 0.1.1],
-  abstract: [This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.],
-  publisher: [Product Engineering Department],
-  distribution: [authorized personnel],
-  toc: false,
-  footer-content: ([If the footer-content argument in the template call takes the form of an array, then the first item in that array is displayed here, as you see it, and the second item in that array is displayed on all subsequent pages after the first. If footer-content is not an array (and also not none), then the same content is displayed on all pages.],[This is the second element of the footer-content array, so it is displayed on all pages after the first.]),
-  draft: false,
+  abstract: [This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.
+
+  This Typst template adopts many aspects of the design and typography of Edward Tufte's books. The document itself demonstrates the functionality and usage of the template, including setup, sidenotes, figure display, citations, and more.
+  
+  中文摘要中文摘要中文adfa摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中asdfads文摘要中文摘要中文摘要adsfads中文摘要中文摘要adfad中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文adadf摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要中文摘要。
+  ],
+  publisher: [Product Engineering Department出版者],
+  distribution: [authorized personnel目标],
+  toc: true,
+  footer-content: ([If the footer-content argument in the template call takes the form of an array, then the first item in that array is displayed here, as you see it, and the second item in that array is displayed on all subsequent pages after the first. If footer-content is not an array (and also not none), then the same content is displayed on all pages.],[This is the second element of the footer-content array, so it is displayed on all pages after the first.测试中文。]),
+  draft: true,
   bib: bibliography("references.bib")
 )
 
-= Introduction
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative Information" #notecite(<Tufte2001>)and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
+= Introduction绪论
+Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>)and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
 
 This Typst template adopts many of the conventions used by Gralla and Tufte and allows the interested author to obtain a similar appearance to style of Tufte's publications. However, the design adapts the book-format to work as an article (i.e., not having multiple parts and chapters and so forth, but instead something more akin to a memo or academic journal article).
 
@@ -69,6 +74,10 @@ You may have noticed that this text spans the entire width of the page whereas t
 The wideblock simply is a `block` but with the width parameter adjusted to make the block 6.5 inches wide. This can be useful when a full page does not contain any sidenotes and otherwise the text would look somewhat awkward being unnecessarily compressed into a narrow column.
 ]
 == Sidenotes
+2008年，文章在热播剧《奋斗》中出演男二号向南，引起广泛关注。这也是文章和妻子马伊琍的第二次合作。2009年，文章进入电影届，主演第一部电影《走着瞧》。该片在上海国际电影节新片展映单元和东京国际电影节“亚洲风”单元获奖。文章也凭主演的北京青年马杰一角获得第12届上海国际电影节最受关注新人演员奖。2009年，文章主演电视剧《爱在日月潭》，参演热播电视剧《蜗居》，成功饰演配角小贝，知名度得到进一步提高。2010年，文章与李连杰共同主演文艺片《海洋天堂》，文章饰演弱智青年大福，被认为是中国的“达斯汀·霍夫曼”。
+
+文章凭此片获得第14届中国电影华表奖优秀新人男演员奖，第13届上海国际电影节最佳男主角奖和第18届北京大学生电影节最受大学生欢迎男演员奖。该片获得上海国际电影节“金爵奖”，中国电影华表奖优秀故事片奖和第18届北京大学生电影节人文关怀奖。同年，文章主演电视剧《雪豹》，该剧被各大电视台反复播放。文章凭借周卫国一角获得第12届四川电视艺术节金熊猫奖电视剧类最佳男演员，第9届中国金鹰电视艺术节最具人气男演员和第26届中国电视金鹰奖最受观众喜爱男演员。
+
 In Tufte books, sidenotes#note[This is a sidenote; perhaps you have already noticed them in this document.] are a distinctive feature: sidenotes are used for a variety of purposes, but mainly to provide non-critical but related information. In a basic sense, they are simply footnotes but put on the side. Sidenotes, arguably, are more elegant than footnotes since they appear closer to the text being referenced, but still with enough of a breathe around them to not feel cluttered.
 
 This template implements sidenotes with the `note()` function. The simplest sidenote is created with `#note[enter your content here]` which yields: #note[enter your content here]. Notice how the sidenote is automatically numbered like a footnote. This can be disabled with the `numbered: false` keyword argument.#note(numbered:false)[This sidenote is not numbered.]
@@ -95,7 +104,7 @@ Alternatively, a `wideblock()` can be used to display a larger (or, at least wid
 
 #wideblock([#figure(
   rect(width:100%,height:3in),
-  caption:[The widest figure you've ever seen!])
+  caption:[The widest figure you\'ve ever seen!])
   <fig:wide>]
 )
 

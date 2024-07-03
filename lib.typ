@@ -1,19 +1,17 @@
 #import "@preview/drafting:0.2.0": *
 
-#let wideblock(content) = block(width:100%+2.5in,content)
+#let wideblock(content) = block(width:100%+1.5in,content)
 
 // Fonts used in front matter, sidenotes, bibliography, and captions
 #let sans-fonts = (
-    "Gill Sans MT",
-    "TeX Gyre Heros",
-    "Noto Sans"
+//    "TeX Gyre Heros",
+    "Source Han Sans"
   )
 
 // Fonts used for headings and body copy
 #let serif-fonts = (
-  "Lucida Bright",
-  "New CM",
-  "Linux Libertine",
+//  "Linux Libertine",
+  "Source Han Serif"
 )
 
 #let template(
@@ -49,7 +47,7 @@
   // Tables and figures
   show figure: set figure.caption(separator: [.#h(0.5em)])
   show figure.caption: set align(left)
-  show figure.caption: set text(font: "Gill Sans MT")
+  show figure.caption: set text(font: sans-fonts)
 
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: table): set figure(numbering: "I")
@@ -104,16 +102,16 @@
 
   // Page setup
   set page(
-    paper: "us-letter",
+    paper: "a4",
     margin: (
       left: 1in,
-      right: 3.5in,
+      right: 2.5in,
       top: 1.5in,
       bottom: 1.5in
     ),
     header: context {
-      set text(font: "Gill Sans MT")
-      block(width: 100% + 3.5in - 1in,{
+      set text(font: sans-fonts)
+      block(width: 100% + 1.5in,{
       if counter(page).get().first() > 1 {
         if document-number != none {document-number}
         h(1fr)
@@ -126,8 +124,8 @@
       }})
     },
     footer: context {
-      set text(font: "Gill Sans MT",size: 8pt)
-      block(width: 100% +3.5in - 1in,{
+      set text(font: sans-fonts,size: 8pt)
+      block(width: 100% +1.5in,{
       if counter(page).get().first() == 1 {
         if type(footer-content) == array {
           footer-content.at(0)
@@ -160,13 +158,13 @@
         [Page #counter(page).display()]
       }
     })},
-    background: if draft {rotate(45deg,text(font:"Gill Sans MT",size:200pt, fill: rgb("FFEEEE"))[DRAFT])}
+    background: if draft {rotate(45deg,text(font:sans-fonts,size:200pt, fill: rgb("FFEEEE"))[DRAFT])}
   )
 
   set par(
     justify: true,
     leading: 0.65em,
-    first-line-indent: 1em
+    first-line-indent: 2em
   )
   show par: set block(
     spacing: 0.65em
@@ -190,7 +188,7 @@
       upper(subtitle)
     })
   let authorblock(authors) = wideblock({
-    set text(font: "Gill Sans MT", size: 11pt)
+    set text(font: sans-fonts, size: 11pt)
     v(1em)
     for i in range(calc.ceil(authors.len() / 3)) {
       let end = calc.min((i + 1) * 3, authors.len())
@@ -218,19 +216,19 @@
       }
     }})
   let abstractblock(abstract) = wideblock({
-      set text(font: "Gill Sans MT")
-      set par(hanging-indent: 3em)
-      h(3em)
+      set text(font: sans-fonts)
+      set par(first-line-indent: 2em)
+      h(2em)
       abstract
     })
   let tocblock() = wideblock({
-      set text(font: "Gill Sans MT")
+      set text(font: sans-fonts)
       outline(indent:1em,title:none,depth:2)
     })
 
   titleblock(title:title, subtitle:subtitle)
   authorblock(authors)
-  text(size:11pt,font: "Gill Sans MT",{
+  text(size:11pt,font: sans-fonts,{
     if date != none {upper(date.display("[month repr:long] [day], [year]"))}
     linebreak()
     if document-number != none {document-number}
@@ -245,7 +243,7 @@
   set-margin-note-defaults(
     stroke: none,
     side: right,
-    margin-right: 2.35in,
+    margin-right: 2.2in,
     margin-left: 1.35in,
   )
 
@@ -282,7 +280,7 @@ Takes 2 optional keyword and 1 required argument:
     notecounter.step()
     text(weight:"bold",super(notecounter.display()))
   }
-  text(size:9pt,font: "Gill Sans MT",margin-note(if numbered {
+  text(size:9pt,font: sans-fonts,margin-note(if numbered {
     text(weight:"bold",font:"Lucida Bright",size:11pt,{
       super(notecounter.display())
       text(size: 9pt, " ")
