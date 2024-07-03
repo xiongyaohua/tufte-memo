@@ -26,26 +26,27 @@
   bib: none
 )
 
-= 绪论
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>) and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
+= 数据分析的历史
+- 什么是数据分析？
+- 广义的数据分析，从远古到近代
+- 狭义的数据分析，计算机
 
-#figure(
-  table(
-    columns: 10,
-    ..range(100).map(i => str(i))
-  ),
-  caption: [数据表]
-)
+== 相关概念
 
-#wideblock(
-  figure(
-    rect(width: 100%, height: 10em, fill: blue),
-    caption: [大方框]
-  )
-)
-= 绪论
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>) and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
-= 绪论
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>) and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
-= 绪论
-Edward Tufte is an American statistician, professor, and pioneer in the field of data visualization, known for his work on the visual presentation of data and information. He is the author of influential books such as "The Visual Display of Quantitative正文测试 Information" #notecite(<Tufte2001>) and is renowned for his principles on clarity, precision, and efficiency in data graphics. His books have inspired a unique design and typography, created by Howard Gralla.
+= 交通数据的类型、来源、特性
+== 数据类型
+== 检测手段
+
+= 数据分析流程
+== 数据获取
+== 数据清洗
+== 数据探索
+== 数据建模
+
+= 学习方法
+
+= 课程安排
+
+= 成绩评定
+
+= 课后习题
