@@ -77,7 +77,7 @@
   //show list: set par(justify: false)
 
   // Headings
-  set heading(numbering: none,)
+  set heading(numbering: "1.1.aa",)
   show heading.where(level:1): it => {
     v(2em,weak:true)
     text(size:14pt, weight: "bold",it)
@@ -149,10 +149,10 @@
           linebreak()
         }
         if draft [
-          Draft document, #date.display().
+          草稿，#date.display().
         ]
         if distribution != none [
-          Distribution limited to #distribution.
+          供#{distribution}使用。
         ]
         linebreak()
         [#counter(page).display("第1页/共1页", both: true)]
